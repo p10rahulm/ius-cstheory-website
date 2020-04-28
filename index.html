@@ -29,7 +29,7 @@
                     Home
                 </a>
             </div>
-            <div id="navbar-Talks" class="navbar_button" onclick="clickNav(this.id);">
+            <div id="navbar-Talks" class="navbar_button" onclick="clickNav(this.id);setAbstracts();">
                 <a href="#Talks">
                     Talks
                 </a>
@@ -167,7 +167,8 @@
             <div class="home-text" id="upcoming-seminars">
                 <div class="seminar">
                     <div class="seminar-title">
-                        Talk by <a href="https://math.berkeley.edu/~nikhil/" target="_blank">Nikhil Srivastava, UC Berkeley</a>
+                        Talk by <a href="https://math.berkeley.edu/~nikhil/" target="_blank">Nikhil Srivastava, UC
+                        Berkeley</a>
                     </div>
                     <div class="seminar-speaker">
                     </div>
@@ -191,7 +192,8 @@
                         List-Decodable Learning via Sum of Squares
                     </div>
                     <div class="seminar-speaker">
-                        <a href = "https://people.eecs.berkeley.edu/~prasad/" target="_blank">Prasad Raghavendra, UC Berkeley</a>
+                        <a href="https://people.eecs.berkeley.edu/~prasad/" target="_blank">Prasad Raghavendra, UC
+                            Berkeley</a>
                     </div>
                     <div class="seminar-time">
                         11:30am-12:30pm EST, Monday April 27 2020.
@@ -199,7 +201,7 @@
                     <div class="seminar-location">
                         <a href="https://bluejeans.com/913829514" target="_blank">Location: Virtual Seminar</a>
                     </div>
-                    <div class="seminar-abstract">
+                    <div class="seminar-abstract-short" onclick="seeMoreAbstract(this)">
                         <b>Abstract:</b> In the list-decodable learning setup, an overwhelming majority (say a
                         $1-\beta$-fraction) of the input data consists of outliers and the goal of an algorithm is
                         to output a small list $\mathcal{L}$ of hypotheses such that one of them agrees with inliers.
@@ -225,10 +227,30 @@
                         of $O(\frac{1}{\alpha})$ subspaces one of which is close to the original subspace. We provide
                         the first polynomial time algorithm for the 'list decodable subspace recovery' problem.
                     </div>
-                    <div class="abstract-seemore"></div>
+
+                </div>
+                <div class="seminar">
+                    <div class="seminar-title">
+                        List-Decodable Learning via Sum of Squares
+                    </div>
+                    <div class="seminar-speaker">
+                        <a href="https://people.eecs.berkeley.edu/~prasad/" target="_blank">Prasad Raghavendra, UC
+                            Berkeley</a>
+                    </div>
+                    <div class="seminar-time">
+                        11:30am-12:30pm EST, Monday April 27 2020.
+                    </div>
+                    <div class="seminar-location">
+                        <a href="https://bluejeans.com/913829514" target="_blank">Location: Virtual Seminar</a>
+                    </div>
+                    <div class="seminar-abstract-short" onclick="seeMoreAbstract(this)">
+                        <b>Abstract:</b> In the list-decodable learning setup, an overwhelming majority
+                    </div>
+
                 </div>
 
             </div>
+
         </div>
         <div id="Visits" class="main inactive">
             <div class="home-header">Visits</div>
@@ -246,10 +268,11 @@
                 <ul>
                     <li>
                         <div class="publication-title">
-                            <a target="_blank" href="https://epubs.siam.org/doi/abs/10.1137/1.9781611975994.10">List Decodable Learning via Sum of Squares</a>
+                            <a target="_blank" href="https://epubs.siam.org/doi/abs/10.1137/1.9781611975994.10">List
+                                Decodable Learning via Sum of Squares</a>
                         </div>
                         <div class="publication-authors">
-                            <a href = "https://people.eecs.berkeley.edu/~prasad/" target="_blank">Prasad Raghavendra</a>
+                            <a href="https://people.eecs.berkeley.edu/~prasad/" target="_blank">Prasad Raghavendra</a>
                             and <a href="https://dblp.org/pers/y/Yau:Morris.html" target="_blank">Morris Yau</a>
                         </div>
                         <div class="publication-location">
@@ -276,6 +299,8 @@
 MathJax.Hub.Config({
   tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 });
+
+
 
 </script>
 <script type="text/javascript" async

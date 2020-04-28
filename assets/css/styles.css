@@ -237,6 +237,24 @@ a:hover {
     text-overflow: ellipsis;
     overflow: hidden;
 }
+.mainer #Talks .seminar .seminar-abstract{
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    border-top: 1px solid rgba(0, 26, 250, 0.12);
+}
+.mainer #Talks .seminar .seminar-abstract-seeless{
+    text-align: right;
+    /*font-weight: bold;*/
+    font-size: x-small;
+    color: #c1c1c1;
+}
+
+.mainer #Talks .seminar .seminar-abstract-seemore{
+    text-align: right;
+    /*font-weight: bold;*/
+    font-size: x-small;
+    color: #c1c1c1;
+}
 
 
 .mainer #Publications .publication-title{
