@@ -3,57 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
 
-    <link rel="icon"  type="image/png" href="assets/images/polyred_small.png">
+    <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
+
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+
+    <link rel="icon" type="image/png" href="assets/images/polyred_small.png">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Title</title>
 </head>
 <body>
 <div class="container">
-    <div class="header">
-        <div id="logo">
-            <a href="https://www.iisc.ac.in/" target="_blank">
-                <img src="images/iisc_logo.png">
-            </a>
-            <div id="logoText">
-                <div id="logol1" class="logoLine">
-                    <a href="https://cni.iisc.ac.in/"  target="_blank">
-                        Center for Network Intelligence RBCCPS
-                    </a>
-                </div>
-                <div id="logol2" class="logoLine">
-                    <a href="https://www.iisc.ac.in/"  target="_blank">
-                        IISc Bangalore
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="HeaderTitle">
-            <h1>Epidemic Simulator City-Scale</h1>
+    <div class="header container-element">
+        <div id="HeaderTitle" class="header-elem">
+            Polynomials as an Algorithmic Paradigm
         </div>
 
-        <div id="navbar">
+        <div id="navbar" class="header-elem">
             <div id="navbar-home" class="navbar-active navbar_button" onclick="clickHome();">
-                <a href="#home">
+                <a href="#Home">
                     Home
                 </a>
             </div>
-            <div id="navbar-about" class="navbar_button" onclick="clickAbout();">
-                <a href="#about">
-                    About
+            <div id="navbar-talks" class="navbar_button" onclick="clickTalks();">
+                <a href="#Talks">
+                    Talks
                 </a>
             </div>
-            <div id="navbar-team" class="navbar_button" onclick="clickTeam();">
-                <a href="#team">
-                    Team
+            <div id="navbar-visits" class="navbar_button" onclick="clickVisits();">
+                <a href="#Visits">
+                    Visits
+                </a>
+            </div>
+            <div id="navbar-publications" class="navbar_button" onclick="clickPublications();">
+                <a href="#Publications">
+                    Publications
                 </a>
             </div>
         </div>
     </div>
+    <div class="mainer container-element">
+        <div id="Home" class="main active">
+            <div class="home-header">Mission Statement</div>
+            <div class="home-text home-textpara">
+                Theoretical Computer Science research has produced and benefited from several powerful paradigms which
+                bridge the discrete and continuous worlds—for instance, convex relaxations of combinatorial optimization
+                problems, spectral graph theory, and Boolean Fourier analysis. Polynomials are one such domain which
+                hold promise for upcoming research work in theoretical computer science.
+            </div>
+            <div class="home-text home-textpara">
+                The center will facilitate research on the new and exciting topic of Polynomials as an Algorithmic
+                Paradigm. The virtual center will support collaboration between the faculty and students from the
+                involved universities as well as workshops and online seminars.
+            </div>
+            <div class="home-text home-textpara">
+                The center aims to foster research collaborations between partner research groups in India and the US,
+                working in areas related to Optimization, Linear Programming, High Dimensional Probability and their
+                applications to algorithmic domains.
+            </div>
 
+            <div class="home-text home-textpara">
+                Our Center is generously sponsored by a grant under the aegis of the
+                <a href="https://www.iusstf.org/">India-US Science and Technology Forum (IUSSTF)</a>
+            </div>
+
+
+            <div class="home-header">Collaborators</div>
+            <div class="home-text" id="institutions">
+                <div class="institute">
+                    <div class="institute-name">Indian Intitute of Science, Bangalore</div>
+                    <ul>
+                        <li>
+                            <a class="name" href="https://www.csa.iisc.ac.in/~barman/">Siddharth Barman</a>
+                        </li>
+                        <li>
+                            Anand Louis
+                        </li>
+                        <li>
+                            Arindam Khan
+                        </li>
+                    </ul>
+                </div>
+                <div class="institute">
+                    <div class="institute-name">Tata Institute of Fundamental Research, Mumbai</div>
+                    <ul>
+                        <li>
+                            Hariharan Narayanan
+                        </li>
+                        <li>
+                            Piyush Srivastava
+                        </li>
+                    </ul>
+                </div>
+                <div class="institute">
+                    <div class="institute-name">Georgia Institute of Technology</div>
+                    <ul>
+                        <li>
+                            Mohit Singh
+                        </li>
+                        <li>
+                            Prasad Tetali
+                        </li>
+                        <li>
+                            Santosh Vempala
+                        </li>
+                    </ul>
+                </div>
+                <div class="institute">
+                    <div class="institute-name">University of California, Berkley</div>
+                    <ul>
+                        <li>
+                            Prasad Raghavendra
+                        </li>
+                        <li>
+                            Alistair Sinclair
+                        </li>
+                        <li>
+                            Nikhil Srivastava
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div id="Talks" class="main inactive">
+            <div class="home-header">Upcoming Talks</div>
+
+            <div class="home-header">Past Talks</div>
+
+        </div>
+        <div id="Visits" class="main inactive">
+            <div class="home-header">Visits</div>
+
+        </div>
+        <div id="Publications" class="main inactive">
+            <div class="home-header">Publications</div>
+        </div>
+
+    </div>
+    <div class="footer container-element">
+        <div id="copyright">
+            &copy; 2020 <a href="https://www.iisc.ac.in" target="_blank">Indian Institute of Science, Bangalore</a>
+        </div>
+
+    </div>
 
 </div>
 <script type="text/javascript" src="assets/js/ui-elements.js"></script>
