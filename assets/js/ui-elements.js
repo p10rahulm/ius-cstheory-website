@@ -1,41 +1,27 @@
-function clickHome() {
-    document.getElementById("home").classList.remove("main-inactive");
-    document.getElementById("home").classList.add("main-active");
-    document.getElementById("about").classList.remove("main-active");
-    document.getElementById("about").classList.add("main-inactive");
-    document.getElementById("team").classList.remove("main-active");
-    document.getElementById("team").classList.add("main-inactive");
 
-    document.getElementById("navbar-home").classList.add("navbar-active");
-    document.getElementById("navbar-about").classList.remove("navbar-active");
-    document.getElementById("navbar-team").classList.remove("navbar-active");
+function clickNav(clicked_id){
+    divIdString = clicked_id.substring(7)
 
+    document.getElementById("Home").classList.add("inactive")
+    document.getElementById("Talks").classList.add("inactive");
+    document.getElementById("Visits").classList.add("inactive");
+    document.getElementById("Publications").classList.add("inactive");
 
-}
+    document.getElementById("Home").classList.remove("active")
+    document.getElementById("Talks").classList.remove("active");
+    document.getElementById("Visits").classList.remove("active");
+    document.getElementById("Publications").classList.remove("active");
 
-function clickTalks() {
-    document.getElementById("home").classList.remove("main-active");
-    document.getElementById("home").classList.add("main-inactive");
-    document.getElementById("about").classList.remove("main-inactive");
-    document.getElementById("about").classList.add("main-active");
-    document.getElementById("team").classList.remove("main-active");
-    document.getElementById("team").classList.add("main-inactive");
-
-    document.getElementById("navbar-home").classList.remove("navbar-active");
-    document.getElementById("navbar-about").classList.add("navbar-active");
-    document.getElementById("navbar-team").classList.remove("navbar-active");
-}
+    document.getElementById(divIdString).classList.remove("inactive");
+    document.getElementById(divIdString).classList.add("active");
 
 
-function clickResearch() {
-    document.getElementById("home").classList.remove("main-active");
-    document.getElementById("home").classList.add("main-inactive");
-    document.getElementById("about").classList.remove("main-active");
-    document.getElementById("about").classList.add("main-inactive");
-    document.getElementById("team").classList.remove("main-inactive");
-    document.getElementById("team").classList.add("main-active");
 
-    document.getElementById("navbar-home").classList.remove("navbar-active");
-    document.getElementById("navbar-about").classList.remove("navbar-active");
-    document.getElementById("navbar-team").classList.add("navbar-active");
+    document.getElementById("navbar-Home").classList.remove("navbar-active");
+    document.getElementById("navbar-Talks").classList.remove("navbar-active");
+    document.getElementById("navbar-Visits").classList.remove("navbar-active");
+    document.getElementById("navbar-Publications").classList.remove("navbar-active");
+    document.getElementById(clicked_id).classList.add("navbar-active");
+
+
 }
