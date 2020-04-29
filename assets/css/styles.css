@@ -170,14 +170,16 @@ a:hover {
 .mainer #Home #institutions .institute .institute-name .institute-name-link{
     font-family: "Open Sans", "Roboto", "Times New Roman", serif;
     font-weight: bold;
-    /*color: rgba(180, 38, 38, 0.85);*/
     color: #01487b;
+    /*color: #01487bcc;*/
     font-size: max(1.1em,14px);
 }
+
+
 .mainer #Home #institutions .institute .name{
     display: inline;
-    /*color: #006ece;*/
     color: #5f5f5f;
+    /*color: #697285b0;*/
     font-weight: bold;
 }
 
@@ -188,8 +190,6 @@ a:hover {
 
 .mainer #Talks .seminar{
     padding: 15px;
-    /*border: 1px solid olivedrab;*/
-    /*border: 1px solid rgba(193, 193, 193, 0.48);*/
     box-shadow: 5px 10px 18px #f4f4f4;
     padding: 20px;
     border-radius: 25px;
@@ -214,6 +214,7 @@ a:hover {
     padding: 0 0 0.5em 0;
     border-bottom: 1px solid rgba(0, 26, 250, 0.12);
 }
+
 .mainer #Talks .seminar .seminar-time {
     padding-top: 0.5em;
     line-height: 1.6;
@@ -222,14 +223,20 @@ a:hover {
 }
 
 .mainer #Talks .seminar .seminar-location{
-    color: #777777;
+    /*color: #777777;*/
+    /*color: #63beff;*/
+    color: #365d7999;
     line-height: 1.6;
 }
 
-.mainer #Talks .seminar .seminar-location a{
-    color: #777777;
+.mainer #Talks .seminar .seminar-notes{
+    color: #a70101a8;
+    /*color: #4c3d9e9e;*/
 }
+
+
 .mainer #Talks .seminar .seminar-abstract-short{
+    color:#5f5f5f;
     margin-top: 0.5em;
     padding-top: 0.5em;
     border-top: 1px solid rgba(0, 26, 250, 0.12);
@@ -238,6 +245,8 @@ a:hover {
     overflow: hidden;
 }
 .mainer #Talks .seminar .seminar-abstract{
+    /*color:#697285;*/
+    color:#5f5f5f;
     margin-top: 0.5em;
     padding-top: 0.5em;
     border-top: 1px solid rgba(0, 26, 250, 0.12);
