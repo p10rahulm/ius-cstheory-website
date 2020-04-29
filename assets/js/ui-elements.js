@@ -76,3 +76,34 @@ function isOverflown(element) {
     return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
 }
 
+
+//Touch
+function start() {
+    //right-swipe on Home
+    document.getElementById('Home').addEventListener('swiped-right', function (e) {
+        clickNav("navbar-Visits");
+    });
+    //left-swipe on Home
+    document.getElementById('Home').addEventListener('swiped-left', function (e) {
+        clickNav("navbar-Talks");
+    });
+
+
+    //right-swipe on Talks
+    document.getElementById('Talks').addEventListener('swiped-right', function (e) {
+        clickNav("navbar-Home");
+    });
+    //left-swipe on Talks
+    document.getElementById('Talks').addEventListener('swiped-left', function (e) {
+        clickNav("navbar-Visits");
+    });
+
+    //right-swipe on Visits
+    document.getElementById('Visits').addEventListener('swiped-right', function (e) {
+        clickNav("navbar-Talks");
+    });
+    //left-swipe on Visits
+    document.getElementById('Visits').addEventListener('swiped-left', function (e) {
+        clickNav("navbar-Home");
+    });
+}
