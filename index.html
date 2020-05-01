@@ -30,7 +30,7 @@
     <!--Title-->
     <title>Polynomials as an Algorithmic Paradigm</title>
 </head>
-<body onload="start()">
+<body onload="start();">
 <div class="container">
     <div class="header container-element">
         <div id="HeaderTitle" class="header-elem">
@@ -176,75 +176,11 @@
         <div id="Talks" class="main inactive">
             <div class="home-header">Upcoming Seminars</div>
             <div class="home-text" id="upcoming-seminars">
-                <div class="seminar">
-                    <div class="seminar-title">
-                        Talk by <a href="https://math.berkeley.edu/~nikhil/" target="_blank">Nikhil Srivastava, UC
-                        Berkeley</a>
-                    </div>
-                    <div class="seminar-speaker">
-                    </div>
-                    <div class="seminar-time">
-                        21:00-22:00IST (11:30-12:30EST), Monday May 25 2020.
-                    </div>
-                    <div class="seminar-location">
-                        <a href="#">Location: Virtual Seminar</a>
-                    </div>
-
-                </div>
-
-
             </div>
 
 
             <div class="home-header">Past Seminars</div>
             <div class="home-text" id="past-seminars">
-                <div class="seminar">
-                    <div class="seminar-title">
-                        List-Decodable Learning via Sum of Squares
-                    </div>
-                    <div class="seminar-speaker">
-                        <a href="https://people.eecs.berkeley.edu/~prasad/" target="_blank">Prasad Raghavendra, UC
-                            Berkeley</a>
-                    </div>
-                    <div class="seminar-time">
-                        21:00-22:00IST (11:30-12:30EST), Monday April 27 2020.
-                    </div>
-                    <div class="seminar-location">
-                        <a href="https://bluejeans.com/913829514" target="_blank">Location: Virtual Seminar</a>
-                    </div>
-                    <div class="seminar-notes">
-                        Notes: Joint seminar with <a target="_blank" href="https://arc.gatech.edu/hg/item/634657">Algorithms
-                        and Randomness Center, Georgia Tech</a>
-                    </div>
-                    <div class="seminar-abstract-short" onclick="seeMoreAbstract(this)">
-                        <b>Abstract:</b> In the list-decodable learning setup, an overwhelming majority (say a
-                        $1-\beta$-fraction) of the input data consists of outliers and the goal of an algorithm is
-                        to output a small list $\mathcal{L}$ of hypotheses such that one of them agrees with inliers.
-                        We devise list decodable learning algorithms for the problem of linear regression and subspace
-                        recovery using the sum of squares SDP hierarchy.
-
-
-                        1) In the list-decodable linear regression problem, we are given labelled examples
-                        $\{(X_i,y_i)\}_{i \in [N]}$ containing a subset $S$ of $\beta N$ {\it inliers} $\{X_i \}_{i \in
-                        S}$ that are drawn i.i.d. from standard Gaussian distribution $N(0,I)$ in $\mathbb{R}^d$, where
-                        the corresponding labels $y_i$ are well-approximated by a linear function $\hat{\ell}$.
-
-                        We devise an algorithm that outputs a list $\mathcal{L}$ of linear functions such that there
-                        exists some $\ell \in \mathcal{L}$ that is close to $\hat{\ell}$. This yields the first
-                        algorithm for linear regression in a list-decodable setting. Our results hold for a general
-                        distribution of examples whose concentration and anti-concentration properties can be certified
-                        by low degree sum-of-squares proofs.
-
-
-                        2) In the subspace recovery problem, given a dataset where an $\alpha$ fraction (less than half)
-                        of the data is distributed uniformly in an unknown $k$ dimensional subspace in $d$ dimensions,
-                        and with no additional assumptions on the remaining data, the goal is to recover a succinct list
-                        of $O(\frac{1}{\alpha})$ subspaces one of which is close to the original subspace. We provide
-                        the first polynomial time algorithm for the 'list decodable subspace recovery' problem.
-                    </div>
-
-                </div>
-
             </div>
 
         </div>
@@ -260,7 +196,7 @@
 
 
     </div>
-    <div class="footer container-element" onclick="readTalks('content/seminars/')">
+    <div class="footer container-element">
         <div id="copyright">
             &copy; 2020 <a href="https://www.iisc.ac.in" target="_blank">Indian Institute of Science, Bangalore</a>.
             Website maintained by Rahul Madhavan

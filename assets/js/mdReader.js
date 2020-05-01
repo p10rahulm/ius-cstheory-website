@@ -1,4 +1,4 @@
-function readTalks(dirName) {
+function loadTalks(dirName,filesListPath) {
     filesListPath = "files.list";
     const filesListRaw = loadFile(dirName + filesListPath);
     const filenames = filesListRaw.split('\n');
@@ -8,7 +8,10 @@ function readTalks(dirName) {
 
         createTalk(talkName, dirName);
     }
+    //reset all the "see mores after including new data"
     setAbstracts();
+    //reset Mathjax typesetting
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 }
 
 function loadFile(filePath) {
