@@ -3,7 +3,7 @@ function loadTalks(dirName,filesListPath) {
     const filesListRaw = loadFile(dirName + filesListPath);
     const filenames = filesListRaw.split('\n');
     for (let i = 1; i < filenames.length; i++) {
-        console.log(filenames[i]);
+        // console.log(filenames[i]);
         let talkName = filenames[i];
 
         createTalk(talkName, dirName);
@@ -107,7 +107,6 @@ function parseContents(contents) {
     //Remove comments from string: https://stackoverflow.com/questions/5989315/regex-for-match-replacing-javascript-comments-both-multiline-and-inline
     contents = contents.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
     const contentLines = contents.split("\n");
-    // console.log("contentLines = ", contentLines);
     const contentKV = {};
     let inMeta = 0;
     let inContent = 0;
@@ -115,20 +114,15 @@ function parseContents(contents) {
     let multiline = "";
     let multilineKey = "";
     for (lineNo = 0; lineNo < contentLines.length && !inContent; lineNo++) {
-        // console.log(contentLines[lineNo]);
         if (!inMeta && contentLines[lineNo].trim() == "+++") {
-            // console.log("line number of meta start = ",lineNo);
             inMeta = 1;
             continue;
         } else if (inMeta && contentLines[lineNo].trim() == '+++') {
-            // console.log("line number of meta end = ",lineNo);
             inContent = 1;
         } else if (inMeta && multiline != "") {
-            // console.log("Parsing >1 line of multiline comment");
             multiline = multiline.concat('\n', contentLines[lineNo].trim());
             if (multiline.slice(-3) == "'''") {
                 contentKV[multilineKey] = multiline.slice(0, -3);
-                // console.log("key = ",multilineKey,",val = ",contentKV[multilineKey] );
                 multiline = "";
                 multilineKey = "";
 
@@ -139,13 +133,11 @@ function parseContents(contents) {
             if (keyval.length > 1) {
                 let key = keyval[0].trim();
                 let val = keyval[1].trim();
-                // console.log("key = ",key,"val = ",val, "val[0]=",val[0],"val[0]==\"",val[0]=="\"");
                 if (val[0] == "\"") {
                     val = val.slice(1, -1);
                     contentKV[key] = val;
                 }
                 if (val.length > 3 && (val.slice(0, 3) == "'''")) {
-                    // console.log("Parsing first line of multiline comment");
                     multilineKey = key;
                     multiline = val.slice(3).trim();
                     if (multiline.slice(-3) == "'''") {
@@ -162,8 +154,6 @@ function parseContents(contents) {
     }
 
     contentKV.article = contentLines.slice(lineNo).join('\n');
-    // console.log("contentKV.article = ",contentKV.article);
-    console.log("contentKV = ", contentKV);
     return contentKV;
 
 
