@@ -1,0 +1,18 @@
+Georgia Institute of Technology, Atlanta||https://www.cc.gatech.edu/
+Mohit Singh||https://www2.isye.gatech.edu/~msingh94/
+Prasad Tetali||https://people.math.gatech.edu/~tetali/
+Santosh Vempala||https://www.cc.gatech.edu/~vempala/
++++
+University of California, Berkley||https://eecs.berkeley.edu/
+Prasad Raghavendra||https://people.eecs.berkeley.edu/~prasad/
+Alistair Sinclair||https://people.eecs.berkeley.edu/~sinclair/
+Nikhil Srivastava||https://math.berkeley.edu/~nikhil/
++++
+Indian Institute of Science, Bangalore||https://www.csa.iisc.ac.in/
+Siddharth Barman||https://www.csa.iisc.ac.in/~barman/
+Arindam Khan||https://www.csa.iisc.ac.in/~arindamkhan/
+Anand Louis||https://www.csa.iisc.ac.in/~anandl/
++++
+Tata Institute of Fundamental Research, Mumbai||https://www.tcs.tifr.res.in/
+Hariharan Narayanan||https://www.tifr.res.in/~hariharan.narayanan/
+Piyush Srivastava||https://www.tifr.res.in/~piyush.srivastava/

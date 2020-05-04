@@ -1,0 +1,19 @@
+Different aspects of the geometry of polynomials have come to play increasingly important
+roles in combinatorics, discrete probability and the theory of algorithms, with resolutions of old
+open problems and other exciting new developments in these areas having drawn on this set of ideas.
+~~~
+The center seeks to work on some key open questions in diverse fields: including in computational
+statistics, operations research, algorithmic game theory, Markov chain Monte Carlo,
+the mathematical theory of convex optimization, and algorithmic aspects of statistical physics.
+A common theme running through this diverse set of questions is that for all of them, there is
+compelling evidence to suggest that ideas from the geometry of polynomials are likely to constitute
+an important piece of the puzzle.
+~~~
+The center will facilitate research on the new and exciting topic of Polynomials as an Algorithmic
+Paradigm. The virtual center will support collaboration between the faculty and students from the
+involved universities as well as workshops and online seminars. This Indo-US virtual center seeks
+to bring together several researchers in India and the USA whose work touches upon different facets
+of this subject.
+~~~
+Our Center is generously sponsored by a grant under the aegis of the
+<a target="_blank" href="https://www.iusstf.org/">India-US Science and Technology Forum (IUSSTF)</a>

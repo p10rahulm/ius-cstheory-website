@@ -1,22 +1,38 @@
 function loadTalks(dirName,filesListPath) {
     filesListPath = "files.list";
-    const filesListRaw = loadFile(dirName + filesListPath);
-    const filenames = filesListRaw.split('\n');
-    for (let i = 1; i < filenames.length; i++) {
-        // console.log(filenames[i]);
-        let talkName = filenames[i];
-
-        createTalk(talkName, dirName);
+    const filesListHttp = loadFileAsync(dirName + filesListPath);
+    filesListHttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            const filesListRaw = this.responseText;
+            const filenames = filesListRaw.split('\n');
+            for (let i = 1; i < filenames.length; i++) {
+                // console.log(filenames[i]);
+                let talkName = filenames[i];
+                let talkhttp = loadFileAsync(dirName + talkName);
+                talkhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        createTalk(this.responseText);
+                    }
+                }
+            }
+        }
     }
-    //reset all the "see mores after including new data"
-    setAbstracts();
-    //reset Mathjax typesetting
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    if(document.readyState == "complete"){
+        //reset all the "see mores after including new data"
+        setAbstracts();
+        //reset Mathjax typesetting
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+
+
+
 }
 
+/*
 function loadFile(filePath) {
     var result = null;
     var xmlhttp = new XMLHttpRequest();
+    console.log("filePath=",filePath);
     xmlhttp.open("GET", filePath, false);
     xmlhttp.send();
     if (xmlhttp.status == 200) {
@@ -24,10 +40,18 @@ function loadFile(filePath) {
     }
     return result;
 }
+*/
+function loadFileAsync(filePath) {
+    var result = null;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", filePath, true);
+    xmlhttp.send();
+    return  xmlhttp;
 
-function createTalk(talkName, dirName) {
-    const contents = loadFile(dirName + talkName);
-    const talkKV = parseContents(contents);
+}
+
+function createTalk(talkContents) {
+    const talkKV = parseContents(talkContents);
     const seminar = document.createElement("div");
     let seminarDate = new Date();
     seminar.className = "seminar";

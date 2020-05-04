@@ -5,7 +5,7 @@ function clickNav(clicked_id) {
     document.getElementById("Talks").classList.add("inactive");
     document.getElementById("Visits").classList.add("inactive");
 
-    document.getElementById("Home").classList.remove("active")
+    document.getElementById("Home").classList.remove("active");
     document.getElementById("Talks").classList.remove("active");
     document.getElementById("Visits").classList.remove("active");
 
@@ -30,8 +30,8 @@ function seeMoreAbstract(element) {
         //create a see less token
         const newdiv = document.createElement("div");
         newdiv.innerHTML = "...See Less<i class=\"arrow up\"></i>";
-        newdiv.className = "seminar-abstract-seeless"
-        newdiv.setAttribute("onClick", "seeLessAbstract(this)")
+        newdiv.className = "seminar-abstract-seeless";
+        newdiv.setAttribute("onClick", "seeLessAbstract(this)");
         // newdiv.onclick = "seeLessAbstract(newdiv)";
         element.parentElement.appendChild(newdiv);
 
@@ -79,10 +79,12 @@ function isOverflown(element) {
 
 //Touch
 function start() {
-    //Load Swipes
-    oneRingToSwipemAll();
+    //Load Home
+    loadHome("content/");
     //Load Seminars
     loadTalks("content/seminars/","files.list");
+    //Load Swipes
+    oneRingToSwipemAll();
 }
 function oneRingToSwipemAll(){
     //right-swipe on Home
