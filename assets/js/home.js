@@ -51,6 +51,8 @@ function loadHome(dirName) {
                 seminarHome.appendChild(seminar);
                 const homeDiv = document.getElementById("Home");
                 homeDiv.appendChild(seminarHome);
+                //reset Mathjax typesetting
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
             }
         }
