@@ -71,13 +71,20 @@ function loadIntroText(introResponse){
         para.innerHTML = paraS[i];
         introPart.appendChild(para);
     }
-    document.getElementById("Home").appendChild(introPart);
+    const collabheading = document.getElementById("collaborators-heading");
+    if(collabheading){
+        document.getElementById("Home").insertBefore(introPart,collabheading);
+    } else {
+        document.getElementById("Home").appendChild(introPart);
+    }
+
 }
 function loadCollaborators(collabResponse){
     //Collaborators Heading
     const collabHeading = document.createElement("div");
     collabHeading.className = "home-header";
     collabHeading.innerHTML = "Collaborators";
+    collabHeading.id = "collaborators-heading"
     document.getElementById("Home").appendChild(collabHeading);
 
     //Create Page
@@ -130,11 +137,11 @@ function generateHomeHTML(dirName){
     introhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             loadIntroText(this);
-            collaboratorshttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    loadCollaborators(this);
-                }
-            }
+        }
+    }
+    collaboratorshttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            loadCollaborators(this);
         }
     }
 }
