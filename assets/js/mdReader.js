@@ -34,27 +34,7 @@ function loadTalks(dirName, filesListPath) {
 
 }
 
-//Try not to use below function as it's blocking code
-function loadFile(filePath) {
-    var result = null;
-    var xmlhttp = new XMLHttpRequest();
-    console.log("filePath=", filePath);
-    xmlhttp.open("GET", filePath, false);
-    xmlhttp.send();
-    if (xmlhttp.status == 200) {
-        result = xmlhttp.responseText;
-    }
-    return result;
-}
 
-function loadFileAsync(filePath) {
-    var result = null;
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", filePath, true);
-    xmlhttp.send();
-    return xmlhttp;
-
-}
 
 function createTalk(talkContents, talkFile, divLocation) {
     const talkKV = parseContents(talkContents);

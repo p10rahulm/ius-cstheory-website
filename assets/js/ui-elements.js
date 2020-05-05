@@ -78,14 +78,7 @@ function isOverflown(element) {
 
 
 //Touch
-function start() {
-    //Load Home
-    loadHome("content/");
-    //Load Seminars
-    loadTalks("content/seminars/","files.list");
-    //Load Swipes
-    oneRingToSwipemAll();
-}
+
 function oneRingToSwipemAll(){
     //right-swipe on Home
     document.getElementById('Home').addEventListener('swiped-right', function (e) {
