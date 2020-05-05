@@ -1,9 +1,10 @@
 body {
-    font-family: "Open Sans", "Roboto", "Times New Roman", serif;
+    font-family: "Open Sans", Georgia,Cambria,Times,"Times New Roman",Serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     line-height: 1.6;
     margin-bottom: 50px;
+    font-display: swap;
 }
 
 a {
@@ -61,7 +62,7 @@ a:hover {
     vertical-align: center;
     padding-left: 10px;
 
-    font-family: "Lora";
+    font-family: "Lora",Georgia,Times,"Times New Roman",Serif;
     color: #005999;
     font-size: min(7vw,2em);
     font-weight: bold;
@@ -99,7 +100,7 @@ a:hover {
 }
 
 .header #navbar .navbar_button a {
-    font-family: "Alegreya SC";
+    font-family: "Alegreya SC","Felix Titling","Perpetua Titling MT",Georgia,Times,"Times New Roman",Serif;
     font-size: max(1em, 12px);
     color: #cc0000;
 }
@@ -121,7 +122,7 @@ a:hover {
 }
 
 .mainer .home-header{
-    font-family: "Lora", "Times New Roman";
+    font-family: "Lora", Georgia,Cambria,Times,"Times New Roman",Serif;
     /*color: rgba(0, 67, 204, 0.85);*/
     color: rgba(167, 0, 0, 0.85);
     font-size: max(16px,1.75em);
@@ -168,7 +169,7 @@ a:hover {
     text-align: center;
 }
 .mainer #Home #institutions .institute .institute-name .institute-name-link{
-    font-family: "Open Sans", "Roboto", "Times New Roman", serif;
+    font-family: "Open Sans", Georgia,Cambria,Times,"Times New Roman",Serif;
     font-weight: bold;
     color: #01487b;
     /*color: #01487bcc;*/
@@ -298,7 +299,7 @@ a:hover {
 }
 
 .footer #copyright {
-    font-family: "Alegreya SC";
+    font-family: "Alegreya SC","Felix Titling","Perpetua Titling MT",Georgia,Times,"Times New Roman",Serif;
     color: #005999;
     text-align: center;
 }
@@ -312,7 +313,7 @@ a:hover {
     text-align: center;
     font-size: max(16px,2em);
     font-weight: bold;
-    font-family: Lora,Times, serif;
+    font-family: Lora,Georgia,Cambria,Times,"Times New Roman",Serif;
     color: rgba(158, 29, 29, 0.85);
     color: #ab3c3cd9;
 }
@@ -320,7 +321,7 @@ a:hover {
 #seminarHome .seminar-speaker {
     text-align: center;
     font-style: italic;
-    font-family: Lora, Times, serif;
+    font-family: Lora,Georgia,Cambria,Times,"Times New Roman",Serif;
     color: #093598;
     border-bottom: 1px solid #ececec;
     padding: 5px 0px 10px 0px;
@@ -340,7 +341,7 @@ a:hover {
     padding: 5px 0px;
     /*color: #006544;*/
     color: #00631e;
-    font-family: Lora, Cambria, serif;
+    font-family: Lora,Georgia,Cambria,Times,"Times New Roman",Serif;
 }
 
 #seminarHome .seminar-abstract {
