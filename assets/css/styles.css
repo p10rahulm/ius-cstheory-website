@@ -303,3 +303,77 @@ a:hover {
     text-align: center;
 }
 
+/*Seminar*/
+#seminarHome {
+    margin: 25px 0px;
+}
+
+#seminarHome .seminar-title{
+    text-align: center;
+    font-size: max(16px,2em);
+    font-weight: bold;
+    font-family: Lora,Times, serif;
+    color: rgba(158, 29, 29, 0.85);
+    color: #ab3c3cd9;
+}
+
+#seminarHome .seminar-speaker {
+    text-align: center;
+    font-style: italic;
+    font-family: Lora, Times, serif;
+    color: #093598;
+    border-bottom: 1px solid #ececec;
+    padding: 5px 0px 10px 0px;
+    font-weight: bold;
+}
+
+#seminarHome .seminar-dateloc{
+    padding: 15px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ececec;
+}
+
+#seminarHome .seminar-dateloc-child{
+    padding: 5px 0px;
+    /*color: #006544;*/
+    color: #00631e;
+    font-family: Lora, Cambria, serif;
+}
+
+#seminarHome .seminar-abstract {
+    font-family: "Open Sans", Georgia, Cambria, "Times New Roman", Times, serif;
+    padding: 15px 0px;
+    text-align: justify;
+    line-height: 1.6;
+
+}
+
+
+#seminarHome .seminar-notes {
+    margin-top: 25px;
+    padding-top: 10px;
+    border-top: 1px solid #ececec;
+    font-weight: 500;
+    font-size: max(11px, 0.9em);
+    color: #a2a2a2;
+    font-family: "Open Sans", Georgia, Cambria, "Times New Roman", Times, serif;
+}
+#seminarHome .seminar-paper {
+    padding-top: 5px;
+    font-weight: 500;
+    font-size: max(11px, 0.9em);
+    font-style: italic;
+    color: #a2a2a2;
+    font-family: "Open Sans", Georgia, Cambria, "Times New Roman", Times, serif;
+}
+#seminarHome .seminar-recording {
+    padding-top: 5px;
+    font-weight: 500;
+    font-size: max(11px, 0.9em);
+    font-style: italic;
+    color: #a2a2a2;
+    font-family: "Open Sans", Georgia, Cambria, "Times New Roman", Times, serif;
+}

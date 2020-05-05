@@ -6,14 +6,18 @@ function loadHome(dirName) {
         generateHomeHTML(dirName);
     } else {
         let talkName = query.substr(talkIndex+5);
-        console.log("talkName = ",talkName);
         const talkHttp = loadFileAsync(dirName+"seminars/" + talkName + ".md");
         talkHttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                const talkContents = this.responseText;
-                talk = parseContents(talkContents);
+                const seminarContents = this.responseText;
+                [seminar, seminarDate] = createTalk(seminarContents, 1);
+                const seminarHome = document.createElement("div");
+                seminarHome.id = "seminarHome";
+                seminarHome.className = "home-text";
+                seminarHome.appendChild(seminar);
+                const homeDiv = document.getElementById("Home");
+                homeDiv.appendChild(seminarHome);
 
-                console.log("talk=",talk);
             }
         }
     }

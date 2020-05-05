@@ -1,4 +1,4 @@
-function loadTalks(dirName,filesListPath) {
+function loadTalks(dirName, filesListPath) {
     filesListPath = "files.list";
     const filesListHttp = loadFileAsync(dirName + filesListPath);
     filesListHttp.onreadystatechange = function () {
@@ -7,32 +7,38 @@ function loadTalks(dirName,filesListPath) {
             const filenames = filesListRaw.split('\n');
             for (let i = 1; i < filenames.length; i++) {
                 // console.log(filenames[i]);
-                let talkName = filenames[i];
-                let talkhttp = loadFileAsync(dirName + talkName);
+                let talkFile = filenames[i];
+                let talkhttp = loadFileAsync(dirName + talkFile);
                 talkhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                        createTalk(this.responseText);
+                        [seminar, seminarDate] = createTalk(this.responseText, talkFile, 0);
+                        const currTime = new Date();
+                        if (seminarDate >= currTime) {
+                            document.getElementById("upcoming-seminars").appendChild(seminar);
+                        } else {
+                            document.getElementById("past-seminars").appendChild(seminar);
+                        }
+
                     }
                 }
             }
         }
     }
-    if(document.readyState == "complete"){
+    if (document.readyState == "complete") {
         //reset all the "see mores after including new data"
         setAbstracts();
         //reset Mathjax typesetting
-        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
     }
-
 
 
 }
 
-/*
+//Try not to use below function as it's blocking code
 function loadFile(filePath) {
     var result = null;
     var xmlhttp = new XMLHttpRequest();
-    console.log("filePath=",filePath);
+    console.log("filePath=", filePath);
     xmlhttp.open("GET", filePath, false);
     xmlhttp.send();
     if (xmlhttp.status == 200) {
@@ -40,19 +46,27 @@ function loadFile(filePath) {
     }
     return result;
 }
-*/
+
 function loadFileAsync(filePath) {
     var result = null;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", filePath, true);
     xmlhttp.send();
-    return  xmlhttp;
+    return xmlhttp;
 
 }
 
-function createTalk(talkContents) {
+function createTalk(talkContents, talkFile, divLocation) {
     const talkKV = parseContents(talkContents);
-    const seminar = document.createElement("div");
+
+    if(divLocation==0){
+        const seminar = document.createElement("a");
+        const talkName = talkFile.slice(0,talkFile.indexOf("."))
+        seminar.href = "/talk="+talkName;
+    } else {
+        const seminar = document.createElement("div");
+    }
+
     let seminarDate = new Date();
     seminar.className = "seminar";
     if (talkKV.title) {
@@ -67,61 +81,72 @@ function createTalk(talkContents) {
         metadiv.className = "seminar-speaker"
         seminar.appendChild(metadiv);
     }
-    if (talkKV.date) {
-        const metadiv = document.createElement("div");
-        let dateStartTime = new Date(talkKV.date);
-        seminarDate = dateStartTime;
-        if (talkKV.date_end) {
-            let dateEndTime = new Date(talkKV.date_end);
-            if (dateEndTime.getDate() == dateStartTime.getDate()) {
-                metadiv.innerHTML = dateStartTime.toLocaleString() + '-' + dateEndTime.toLocaleTimeString();
-            } else {
-                metadiv.innerHTML = dateStartTime.toLocaleString() + '-' + dateEndTime.toLocaleString();
-            }
+    if (talkKV.date || talkKV.location) {
+        const metadivholder = document.createElement("div");
+        metadivholder.className = "seminar-dateloc"
+        if (talkKV.date) {
+            const metadiv = document.createElement("div");
+            let dateStartTime = new Date(talkKV.date);
+            seminarDate = dateStartTime;
+            if (talkKV.date_end) {
+                let dateEndTime = new Date(talkKV.date_end);
+                if (dateEndTime.getDate() == dateStartTime.getDate()) {
+                    metadiv.innerHTML = dateStartTime.toLocaleString() + '-' + dateEndTime.toLocaleTimeString();
+                } else {
+                    metadiv.innerHTML = dateStartTime.toLocaleString() + '-' + dateEndTime.toLocaleString();
+                }
 
-        } else {
-            metadiv.innerHTML = dateStartTime.toLocaleString();
+            } else {
+                metadiv.innerHTML = dateStartTime.toLocaleString();
+            }
+            metadiv.className = "seminar-time"
+            metadiv.classList.add("seminar-dateloc-child");
+            metadivholder.appendChild(metadiv);
         }
-        metadiv.className = "seminar-time"
-        seminar.appendChild(metadiv);
-    }
-    if (talkKV.location) {
-        const metadiv = document.createElement("div");
-        metadiv.innerHTML = talkKV.location;
-        metadiv.className = "seminar-location"
-        seminar.appendChild(metadiv);
-    }
-    if (talkKV.notes) {
-        const metadiv = document.createElement("div");
-        metadiv.innerHTML = talkKV.notes;
-        metadiv.className = "seminar-notes"
-        seminar.appendChild(metadiv);
-    }
-    if (talkKV.link_to_paper) {
-        const metadiv = document.createElement("div");
-        metadiv.innerHTML = talkKV.link_to_paper;
-        metadiv.className = "seminar-paper"
-        seminar.appendChild(metadiv);
-    }
-    if (talkKV.link_to_recording) {
-        const metadiv = document.createElement("div");
-        metadiv.innerHTML = talkKV.link_to_recording;
-        metadiv.className = "seminar-recording"
-        seminar.appendChild(metadiv);
+        if (talkKV.location) {
+            const metadiv = document.createElement("div");
+            metadiv.innerHTML = talkKV.location;
+            metadiv.className = "seminar-location"
+            metadiv.classList.add("seminar-dateloc-child");
+            metadivholder.appendChild(metadiv);
+        }
+        seminar.appendChild(metadivholder);
     }
     if (talkKV.article) {
         const metadiv = document.createElement("div");
         metadiv.innerHTML = talkKV.article;
-        metadiv.className = "seminar-abstract-short"
+        if (divLocation == 0) {
+            metadiv.className = "seminar-abstract-short"
+        } else if (divLocation == 1) {
+            metadiv.className = "seminar-abstract"
+        } else {
+            metadiv.className = "seminar-abstract-short"
+        }
+
         metadiv.setAttribute("onClick", "seeMoreAbstract(this)")
         seminar.appendChild(metadiv);
     }
-    const currTime = new Date();
-    if (seminarDate >= currTime) {
-        document.getElementById("upcoming-seminars").appendChild(seminar);
-    } else {
-        document.getElementById("past-seminars").appendChild(seminar);
+    if (divLocation == 1) {
+        if (talkKV.notes) {
+            const metadiv = document.createElement("div");
+            metadiv.innerHTML = talkKV.notes;
+            metadiv.className = "seminar-notes"
+            seminar.appendChild(metadiv);
+        }
+        if (talkKV.link_to_paper) {
+            const metadiv = document.createElement("div");
+            metadiv.innerHTML = talkKV.link_to_paper;
+            metadiv.className = "seminar-paper"
+            seminar.appendChild(metadiv);
+        }
+        if (talkKV.link_to_recording) {
+            const metadiv = document.createElement("div");
+            metadiv.innerHTML = talkKV.link_to_recording;
+            metadiv.className = "seminar-recording"
+            seminar.appendChild(metadiv);
+        }
     }
+    return [seminar, seminarDate];
 
 
 }
