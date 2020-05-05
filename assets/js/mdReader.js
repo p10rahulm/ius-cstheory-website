@@ -58,19 +58,20 @@ function loadFileAsync(filePath) {
 
 function createTalk(talkContents, talkFile, divLocation) {
     const talkKV = parseContents(talkContents);
-
-    if(divLocation==0){
-        const seminar = document.createElement("a");
-        const talkName = talkFile.slice(0,talkFile.indexOf("."))
-        seminar.href = "/talk="+talkName;
-    } else {
-        const seminar = document.createElement("div");
-    }
+    const seminar = document.createElement("div");
 
     let seminarDate = new Date();
     seminar.className = "seminar";
     if (talkKV.title) {
-        const metadiv = document.createElement("div");
+        let metadiv;
+        if(divLocation==0){
+            metadiv = document.createElement("a");
+            const talkName = talkFile.slice(0,talkFile.indexOf("."))
+            const baseUrl = window.location.origin + window.location.pathname;
+            metadiv.href = baseUrl + "?talk="+talkName;
+        } else {
+            metadiv = document.createElement("div");
+        }
         metadiv.innerHTML = talkKV.title;
         metadiv.className = "seminar-title"
         seminar.appendChild(metadiv);

@@ -32,12 +32,12 @@
 <body onload="start();">
 <div class="container">
     <div class="header container-element">
-        <div id="HeaderTitle" class="header-elem">
+        <div id="HeaderTitle" class="header-elem" onclick="clickHome()">
             Polynomials as an Algorithmic Paradigm
         </div>
 
         <div id="navbar" class="header-elem">
-            <div id="navbar-Home" class="navbar-active navbar_button" onclick="clickNav(this.id);">
+            <div id="navbar-Home" class="navbar-active navbar_button" onclick="clickNav(this.id);clickHome()">
                 <a href="#Home">
                     Home
                 </a>

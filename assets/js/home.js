@@ -1,5 +1,8 @@
-function loadHome(dirName) {
+function clickHome(){
+    window.location = window.location.origin + window.location.pathname;
 
+}
+function loadHome(dirName) {
     query = getSearchString();
     const talkIndex = query.indexOf("talk=")
     if(talkIndex==-1){
@@ -10,7 +13,7 @@ function loadHome(dirName) {
         talkHttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 const seminarContents = this.responseText;
-                [seminar, seminarDate] = createTalk(seminarContents, 1);
+                [seminar, seminarDate] = createTalk(seminarContents, talkName + ".md",1);
                 const seminarHome = document.createElement("div");
                 seminarHome.id = "seminarHome";
                 seminarHome.className = "home-text";
