@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", start);
 function start() {
     //Load Home
     loadHome("content/");
