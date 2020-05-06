@@ -22,7 +22,7 @@ function loadTalks(contentUrl, filesListPath) {
                     //We need current value of talkFileName, so creating an outer function that returns an inner function
                     innerFunc = function (event) {
                         if (this.readyState == 4 && this.status == 200) {
-                            [seminar, seminarDate] = createTalk(this.responseText, talkFile, 0);
+                            [seminar, seminarDate, seminarName] = createTalk(this.responseText, talkFile, 0);
                             const currTime = new Date();
                             if (seminarDate >= currTime) {
                                 document.getElementById(talkFileName.valueOf() + "-upcoming").appendChild(seminar);
@@ -160,7 +160,7 @@ function createTalk(talkContents, talkFile, divLocation) {
             seminar.appendChild(metadiv);
         }
     }
-    return [seminar, seminarDate];
+    return [seminar, seminarDate,talkKV.title];
 
 
 }

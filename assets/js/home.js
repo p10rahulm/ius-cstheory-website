@@ -102,13 +102,15 @@ function clickTalk(talkTitle, talkUrl){
 
 function generateTalkHTML(talkHTTP,talkName){
     const seminarContents = talkHTTP.responseText;
-    [seminar, seminarDate] = createTalk(seminarContents, talkName + ".md",1);
+    [seminar, seminarDate,seminarName] = createTalk(seminarContents, talkName + ".md",1);
     const seminarHome = document.createElement("div");
     seminarHome.id = "seminarHome";
     seminarHome.className = "home-text";
     seminarHome.appendChild(seminar);
     const homeDiv = document.getElementById("Home");
     homeDiv.appendChild(seminarHome);
+    //set document title
+    document.title = seminarName
     //reset Mathjax typesetting
     MathJax.Hub.Queue(["Typeset", MathJax.Hub,seminarHome]);
 }
@@ -229,4 +231,6 @@ function generateHomeHTML(dirName){
             loadCollaborators(this,collabHolder);
         }
     }
+    //set document title
+    document.title = "Polynomials as an Algorithmic Paradigm"
 }
