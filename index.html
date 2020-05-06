@@ -106,13 +106,19 @@ MathJax.Hub.Config({
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <script type="text/javascript" async src="assets/js/swiped-events.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-<script>
-    WebFont.load({
+<script type="text/javascript" defer>
+    WebFontConfig = {
         google: {
             families: ['Lora', 'Open Sans', 'Alegreya SC']
         }
-    });
+    };
+
+    (function(d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.async = true;
+        s.parentNode.insertBefore(wf, s);
+    })(document);
 </script>
 
 </body>
