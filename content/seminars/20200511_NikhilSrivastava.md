@@ -4,7 +4,7 @@ author = "<a href="https://math.berkeley.edu/~nikhil/" target="_blank">Nikhil Sr
 date = "2020-05-11T21:00:00+05:30"
 date_end = "2020-05-11T22:00:00+05:30"
 location = "<a href="https://bluejeans.com/913829514" target="_blank">Location: Virtual Seminar</a>"
-notes = "Joint with with Prasad Raghavendra, Nick Ryder, and Ben Weitz."
+notes = ""
 link_to_paper = ""
 link_to_recording = ""
 +++
@@ -21,3 +21,5 @@ representation of them must have dimension roughly exponential in $n^d$, even if
 cones are random perturbations of the cones induced by the elementary symmetric polynomials. Constructing
 succinctly describable cones with this property remains an open question. The proof involves robust versions of
 several classical facts about real rooted polynomials.
+<br><br>
+Joint with with Prasad Raghavendra, Nick Ryder, and Ben Weitz.

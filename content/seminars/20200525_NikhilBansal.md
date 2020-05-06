@@ -4,7 +4,7 @@ author = "<a href="https://www.win.tue.nl/~nikhil/" target="_blank">Nikhil Bansa
 date = "2020-05-25T21:00:00+05:30"
 date_end = "2020-05-25T21:00:00+05:30"
 location = "<a href="#">Location: Virtual Seminar</a>"
-notes = "Based on joint works with Joel Spencer, Haotian Jiang, Sahil Singla and Makrand Sinha"
+notes = ""
 +++
 
 <b>Abstract:</b>
@@ -17,3 +17,5 @@ due to applications in online algorithms.  I will give an overview of the result
 describe several new recent results that obtain close to optimal bounds in many settings.
 <br><br>
 I will also discuss several basic questions that remain completely open.
+<br><br>
+Based on joint works with Joel Spencer, Haotian Jiang, Sahil Singla and Makrand Sinha
