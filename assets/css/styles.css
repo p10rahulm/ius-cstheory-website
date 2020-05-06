@@ -97,6 +97,13 @@ a:hover {
 
 .header #navbar .navbar_button {
     padding: 10px min(2vw,10px);
+    font-family: "Alegreya SC","Felix Titling","Perpetua Titling MT",Georgia,Times,"Times New Roman",Serif;
+    font-size: max(1em, 12px);
+    color: #cc0000;
+}
+
+.header #navbar .navbar_button:hover {
+    text-decoration: underline;
 }
 
 .header #navbar .navbar_button a {
@@ -208,6 +215,9 @@ a:hover {
     line-height: 1.6;
 }
 
+.mainer #Talks .seminar .seminar-title:hover {
+    text-decoration: underline;
+}
 
 .mainer #Talks .seminar .seminar-speaker{
     font-weight: bold;

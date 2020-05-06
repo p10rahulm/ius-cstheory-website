@@ -55,10 +55,14 @@ function createTalk(talkContents, talkFile, divLocation) {
     if (talkKV.title) {
         let metadiv;
         if(divLocation==0){
-            metadiv = document.createElement("a");
+            metadiv = document.createElement("div");
             const talkName = talkFile.slice(0,talkFile.indexOf("."))
+            metadiv.id = talkName;
             const baseUrl = window.location.origin + window.location.pathname;
-            metadiv.href = baseUrl + "?talk="+talkName;
+            let talkUrl = baseUrl + "?talk="+talkName;
+            metadiv.onclick = function(){clickTalk(talkKV.title.valueOf(),talkUrl.valueOf())};
+
+
         } else {
             metadiv = document.createElement("div");
         }

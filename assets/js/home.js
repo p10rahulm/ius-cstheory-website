@@ -1,4 +1,9 @@
+//first time load
 document.addEventListener("DOMContentLoaded", start);
+//on accessing page via history
+window.onpopstate = function(event){reloadonHistory(event.state)};
+
+
 function start() {
     let contentUrl;
     const indexOfIndex = window.location.pathname.indexOf("index.html");
@@ -14,6 +19,16 @@ function start() {
     loadTalks(contentUrl,"files.list");
     //Load Swipes
     oneRingToSwipemAll();
+}
+
+function reloadonHistory(eventState){
+    if(!eventState){
+        window.location.reload();
+        return;
+    }
+    loadHome(eventState.contentUrl)
+
+
 }
 //Try not to use below function as it's blocking code
 function loadFile(filePath) {
@@ -38,7 +53,37 @@ function loadFileAsync(filePath) {
 }
 
 function clickHome(){
-    window.location = window.location.origin + window.location.pathname;
+
+    const homeUrl = window.location.origin + window.location.pathname;
+    const homeTitle = "Polynomials as an Algorithmic Paradigm";
+
+    let contentUrl;
+    const indexOfIndex = window.location.pathname.indexOf("index.html");
+    if(indexOfIndex==-1){
+        contentUrl = window.location.origin + window.location.pathname + 'content/'
+    } else {
+        contentUrl = window.location.origin + window.location.pathname.substr(0,indexOfIndex) + 'content/'
+    }
+
+    const homeState = {"title":homeTitle,"url":homeUrl,"contentUrl":contentUrl};
+    history.pushState(homeState, homeTitle, homeUrl);
+
+    loadHome(contentUrl);
+}
+
+function clickTalk(talkTitle, talkUrl){
+
+    let contentUrl;
+    const indexOfIndex = window.location.pathname.indexOf("index.html");
+    if(indexOfIndex==-1){
+        contentUrl = window.location.origin + window.location.pathname + 'content/'
+    } else {
+        contentUrl = window.location.origin + window.location.pathname.substr(0,indexOfIndex) + 'content/'
+    }
+
+    const talkState = {"title":talkTitle,"url":talkUrl,"contentUrl":contentUrl};
+    history.pushState(talkState, talkTitle, talkUrl);
+    loadHome(contentUrl);
 }
 
 function generateTalkHTML(talkHTTP,talkName){
@@ -54,7 +99,16 @@ function generateTalkHTML(talkHTTP,talkName){
     MathJax.Hub.Queue(["Typeset", MathJax.Hub,seminarHome]);
 }
 
+function removeChildren(someDiv){
+    while (someDiv.hasChildNodes()) {
+        someDiv.removeChild(someDiv.firstChild);
+    }
+}
+
 function loadHome(contentUrl) {
+    //Clear Home
+    removeChildren(document.getElementById("Home"));
+    clickNav("navbar-Home");
     query = getSearchString();
     const talkIndex = query.indexOf("talk=")
     if(talkIndex==-1){
