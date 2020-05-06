@@ -4,26 +4,43 @@ function loadTalks(contentUrl, filesListPath) {
     const filesListHttp = loadFileAsync(dirName + filesListPath);
     filesListHttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            const filesListRaw = this.responseText;
+            const filesListRaw = this.responseText.trim();
             const filenames = filesListRaw.split('\n');
             for (let i = 1; i < filenames.length; i++) {
-                // console.log(filenames[i]);
                 let talkFile = filenames[i];
                 let talkhttp = loadFileAsync(dirName + talkFile);
-                talkhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        [seminar, seminarDate] = createTalk(this.responseText, talkFile, 0);
-                        const currTime = new Date();
-                        if (seminarDate >= currTime) {
-                            document.getElementById("upcoming-seminars").appendChild(seminar);
-                        } else {
-                            document.getElementById("past-seminars").appendChild(seminar);
+                //create holders so that it does not go out of place in async
+                talkFileName = talkFile.slice(0, -3);
+                talkHolderUpcoming = document.createElement("div");
+                talkHolderUpcoming.id = talkFileName + "-upcoming"
+                document.getElementById("upcoming-seminars").appendChild(talkHolderUpcoming);
+                talkHolderPast = document.createElement("div");
+                talkHolderPast.id = talkFileName + "-past"
+                document.getElementById("past-seminars").appendChild(talkHolderPast);
+
+                talkhttp.onreadystatechange = function (talkFileName) {
+                    //We need current value of talkFileName, so creating an outer function that returns an inner function
+                    innerFunc = function (event) {
+                        if (this.readyState == 4 && this.status == 200) {
+                            [seminar, seminarDate] = createTalk(this.responseText, talkFile, 0);
+                            const currTime = new Date();
+                            if (seminarDate >= currTime) {
+                                document.getElementById(talkFileName.valueOf() + "-upcoming").appendChild(seminar);
+                                nodeToRemove = document.getElementById(talkFileName.valueOf() + "-past")
+                                nodeToRemove.parentNode.removeChild(nodeToRemove);
+
+                            } else {
+                                document.getElementById(talkFileName.valueOf() + "-past").appendChild(seminar);
+                                nodeToRemove = document.getElementById(talkFileName.valueOf() + "-upcoming")
+                                nodeToRemove.parentNode.removeChild(nodeToRemove);
+                            }
+                            //reset Mathjax typesetting
+                            MathJax.Hub.Queue(["Typeset", MathJax.Hub, seminar]);
+                            setAbstractsforDiv(seminar);
                         }
-                        //reset Mathjax typesetting
-                        MathJax.Hub.Queue(["Typeset", MathJax.Hub,seminar]);
-                        setAbstractsforDiv(seminar);
                     }
-                }
+                    return innerFunc;
+                }(talkFileName);
             }
         }
     }
@@ -54,13 +71,15 @@ function createTalk(talkContents, talkFile, divLocation) {
     seminar.className = "seminar";
     if (talkKV.title) {
         let metadiv;
-        if(divLocation==0){
+        if (divLocation == 0) {
             metadiv = document.createElement("div");
-            const talkName = talkFile.slice(0,talkFile.indexOf("."))
+            const talkName = talkFile.slice(0, talkFile.indexOf("."))
             metadiv.id = talkName;
             const baseUrl = window.location.origin + window.location.pathname;
-            let talkUrl = baseUrl + "?talk="+talkName;
-            metadiv.onclick = function(){clickTalk(talkKV.title.valueOf(),talkUrl.valueOf())};
+            let talkUrl = baseUrl + "?talk=" + talkName;
+            metadiv.onclick = function () {
+                clickTalk(talkKV.title.valueOf(), talkUrl.valueOf())
+            };
 
 
         } else {
@@ -189,7 +208,6 @@ function parseContents(contents) {
                         multilineKey = "";
                     }
                 }
-                // console.log("key = ",key,",val = ",val);
             }
         }
 
