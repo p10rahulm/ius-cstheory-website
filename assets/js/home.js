@@ -17,8 +17,11 @@ function start() {
     loadHome(contentUrl);
     //Load Seminars
     loadTalks(contentUrl,"files.list");
+    //Load part of page thats relevant
+    loadHash();
     //Load Swipes
     oneRingToSwipemAll();
+
 }
 
 function reloadonHistory(eventState){
@@ -26,10 +29,21 @@ function reloadonHistory(eventState){
         window.location.reload();
         return;
     }
-    loadHome(eventState.contentUrl)
-
-
+    loadHome(eventState.contentUrl);
+    loadHash();
 }
+
+function loadHash(){
+    const hash = window.location.hash;
+    if(!hash){
+        clickNav("navbar-Home")
+    } else if (hash=="#Talks"){
+        clickNav("navbar-Talks")
+    } else if (hash=="#Visits"){
+        clickNav("navbar-Visits")
+    }
+}
+
 //Try not to use below function as it's blocking code
 function loadFile(filePath) {
     var result = null;

@@ -19,6 +19,24 @@ function clickNav(clicked_id) {
     document.getElementById(clicked_id).classList.add("navbar-active");
 
 
+
+}
+
+function setHash(clicked_id){
+    divIdString = clicked_id.substring(7);
+    const navTitle = document.title;
+    const navUrl = window.location.origin + window.location.pathname + window.location.search + "#"+ divIdString;
+    let contentUrl;
+    const indexOfIndex = window.location.pathname.indexOf("index.html");
+    if(indexOfIndex==-1){
+        contentUrl = window.location.origin + window.location.pathname + 'content/'
+    } else {
+        contentUrl = window.location.origin + window.location.pathname.substr(0,indexOfIndex) + 'content/'
+    }
+
+    const navState = {"title":navTitle,"url":navUrl,"contentUrl":contentUrl};
+
+    history.pushState(navState, navTitle, navUrl);
 }
 
 function seeMoreAbstract(element) {
