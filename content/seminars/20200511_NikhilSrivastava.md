@@ -4,7 +4,7 @@ author = "<a href="https://math.berkeley.edu/~nikhil/" target="_blank">Nikhil Sr
 date = "2020-05-11T21:00:00+05:30"
 date_end = "2020-05-11T22:00:00+05:30"
 location = "<a href="https://bluejeans.com/913829514" target="_blank">Location: Virtual Seminar</a>"
-notes = ""
+notes = "Joint with with Prasad Raghavendra, Nick Ryder, and Ben Weitz."
 link_to_paper = ""
 link_to_recording = ""
 +++
