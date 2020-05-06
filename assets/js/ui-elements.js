@@ -60,6 +60,9 @@ function setAbstracts() {
 
 }
 
+
+
+
 function seeLessAbstract(element) {
     const abstract = element.parentElement.getElementsByClassName("seminar-abstract").item(0);
     abstract.classList.remove("seminar-abstract");
@@ -72,9 +75,6 @@ function seeLessAbstract(element) {
     element.parentNode.removeChild(element);
 }
 
-function isOverflown(element) {
-    return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
-}
 
 
 //Touch

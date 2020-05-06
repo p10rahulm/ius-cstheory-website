@@ -1,9 +1,17 @@
 document.addEventListener("DOMContentLoaded", start);
 function start() {
+    let contentUrl;
+    const indexOfIndex = window.location.pathname.indexOf("index.html");
+    if(indexOfIndex==-1){
+        contentUrl = window.location.origin + window.location.pathname + 'content/'
+    } else {
+        contentUrl = window.location.origin + window.location.pathname.substr(0,indexOfIndex) + 'content/'
+    }
+
     //Load Home
-    loadHome("content/");
+    loadHome(contentUrl);
     //Load Seminars
-    loadTalks("content/seminars/","files.list");
+    loadTalks(contentUrl,"files.list");
     //Load Swipes
     oneRingToSwipemAll();
 }
@@ -33,34 +41,37 @@ function clickHome(){
     window.location = window.location.origin + window.location.pathname;
 }
 
-function loadHome(dirName) {
+function generateTalkHTML(talkHTTP,talkName){
+    const seminarContents = talkHTTP.responseText;
+    [seminar, seminarDate] = createTalk(seminarContents, talkName + ".md",1);
+    const seminarHome = document.createElement("div");
+    seminarHome.id = "seminarHome";
+    seminarHome.className = "home-text";
+    seminarHome.appendChild(seminar);
+    const homeDiv = document.getElementById("Home");
+    homeDiv.appendChild(seminarHome);
+    //reset Mathjax typesetting
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub,seminarHome]);
+}
+
+function loadHome(contentUrl) {
     query = getSearchString();
     const talkIndex = query.indexOf("talk=")
     if(talkIndex==-1){
-        generateHomeHTML(dirName);
+        generateHomeHTML(contentUrl);
     } else {
         let talkName = query.substr(talkIndex+5);
-        const talkHttp = loadFileAsync(dirName+"seminars/" + talkName + ".md");
+        const talkHttp = loadFileAsync(contentUrl+"seminars/" + talkName + ".md");
         talkHttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                const seminarContents = this.responseText;
-                [seminar, seminarDate] = createTalk(seminarContents, talkName + ".md",1);
-                const seminarHome = document.createElement("div");
-                seminarHome.id = "seminarHome";
-                seminarHome.className = "home-text";
-                seminarHome.appendChild(seminar);
-                const homeDiv = document.getElementById("Home");
-                homeDiv.appendChild(seminarHome);
-                //reset Mathjax typesetting
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-
+                generateTalkHTML(this,talkName);
             }
         }
     }
 }
 function getSearchString(){return window.location.search;}
 
-function loadIntroText(introResponse){
+function loadIntroText(introResponse, parentDiv){
     //Introduction
     const introPart = document.createElement("div");
     introPart.className = "home-text"
@@ -73,21 +84,15 @@ function loadIntroText(introResponse){
         para.innerHTML = paraS[i];
         introPart.appendChild(para);
     }
-    const collabheading = document.getElementById("collaborators-heading");
-    if(collabheading){
-        document.getElementById("Home").insertBefore(introPart,collabheading);
-    } else {
-        document.getElementById("Home").appendChild(introPart);
-    }
-
+    parentDiv.appendChild(introPart);
 }
-function loadCollaborators(collabResponse){
+function loadCollaborators(collabResponse,parentDiv){
     //Collaborators Heading
     const collabHeading = document.createElement("div");
     collabHeading.className = "home-header";
     collabHeading.innerHTML = "Collaborators";
     collabHeading.id = "collaborators-heading"
-    document.getElementById("Home").appendChild(collabHeading);
+    parentDiv.appendChild(collabHeading);
 
     //Create Page
     const institutes = document.createElement("div");
@@ -129,21 +134,31 @@ function loadCollaborators(collabResponse){
         }
         institutes.appendChild(institute);
     }
-    document.getElementById("Home").appendChild(institutes);
+    parentDiv.appendChild(institutes);
+
 }
 
 function generateHomeHTML(dirName){
     //HomePage
     const introhttp = loadFileAsync(dirName+"home/intro.txt");
     const collaboratorshttp = loadFileAsync(dirName+"home/collaborators.txt");
+
+    homeDiv = document.getElementById("Home");
+    introHolder = document.createElement("div");
+    introHolder.id = "intro-holder"
+    collabHolder = document.createElement("div");
+    collabHolder.id = "collaborators-holder"
+    homeDiv.appendChild(introHolder);
+    homeDiv.appendChild(collabHolder);
+
     introhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            loadIntroText(this);
+            loadIntroText(this,introHolder);
         }
     }
     collaboratorshttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            loadCollaborators(this);
+            loadCollaborators(this,collabHolder);
         }
     }
 }

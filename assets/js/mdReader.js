@@ -1,4 +1,5 @@
-function loadTalks(dirName, filesListPath) {
+function loadTalks(contentUrl, filesListPath) {
+    dirName = contentUrl + 'seminars/'
     filesListPath = "files.list";
     const filesListHttp = loadFileAsync(dirName + filesListPath);
     filesListHttp.onreadystatechange = function () {
@@ -18,23 +19,32 @@ function loadTalks(dirName, filesListPath) {
                         } else {
                             document.getElementById("past-seminars").appendChild(seminar);
                         }
-
+                        //reset Mathjax typesetting
+                        MathJax.Hub.Queue(["Typeset", MathJax.Hub,seminar]);
+                        setAbstractsforDiv(seminar);
                     }
                 }
             }
         }
     }
-    if (document.readyState == "complete") {
-        //reset all the "see mores after including new data"
-        setAbstracts();
-        //reset Mathjax typesetting
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-    }
-
-
 }
 
 
+function setAbstractsforDiv(abstractdiv) {
+    const abstractDone = abstractdiv.parentElement.getElementsByClassName("seminar-abstract-seemore").length;
+    if (isOverflown(abstractdiv) && !abstractDone) {
+        //create a see less token
+        const newdiv = document.createElement("div");
+        newdiv.innerHTML = "...See More<i class=\"arrow down\"></i>";
+        newdiv.className = "seminar-abstract-seemore"
+        newdiv.setAttribute("onClick", "seeMoreAbstract(this.parentElement.getElementsByClassName('seminar-abstract-short')[0])");
+        abstractdiv.parentElement.appendChild(newdiv);
+    }
+}
+
+function isOverflown(element) {
+    return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+}
 
 function createTalk(talkContents, talkFile, divLocation) {
     const talkKV = parseContents(talkContents);
@@ -133,7 +143,6 @@ function createTalk(talkContents, talkFile, divLocation) {
 }
 
 function parseContents(contents) {
-
     //Remove comments from string: https://stackoverflow.com/questions/5989315/regex-for-match-replacing-javascript-comments-both-multiline-and-inline
     contents = contents.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
     const contentLines = contents.split("\n");
