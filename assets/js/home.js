@@ -36,11 +36,11 @@ function reloadonHistory(eventState){
 function loadHash(){
     const hash = window.location.hash;
     if(!hash){
-        clickNav("navbar-Home")
+        clickNav("navbar-Home");
     } else if (hash=="#Talks"){
-        clickNav("navbar-Talks")
+        clickNav("navbar-Talks");
     } else if (hash=="#Visits"){
-        clickNav("navbar-Visits")
+        clickNav("navbar-Visits");
     }
 }
 

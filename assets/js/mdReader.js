@@ -36,7 +36,7 @@ function loadTalks(contentUrl, filesListPath) {
                             }
                             //reset Mathjax typesetting
                             MathJax.Hub.Queue(["Typeset", MathJax.Hub, seminar]);
-                            setAbstractsforDiv(seminar);
+                            setAbstractsforDiv(seminar.getElementsByClassName('seminar-abstract-short')[0]);
                         }
                     }
                     return innerFunc;
