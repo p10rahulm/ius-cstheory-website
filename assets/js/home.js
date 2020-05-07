@@ -1,22 +1,22 @@
-//first time load
+// first time load
 document.addEventListener("DOMContentLoaded", start);
 //on accessing page via history
-window.onpopstate = function(event){reloadonHistory(event.state)};
+window.onpopstate = function (event) {    reloadonHistory(event.state)};
 
 
 function start() {
     let contentUrl;
     const indexOfIndex = window.location.pathname.indexOf("index.html");
-    if(indexOfIndex==-1){
+    if (indexOfIndex == -1) {
         contentUrl = window.location.origin + window.location.pathname + 'content/'
     } else {
-        contentUrl = window.location.origin + window.location.pathname.substr(0,indexOfIndex) + 'content/'
+        contentUrl = window.location.origin + window.location.pathname.substr(0, indexOfIndex) + 'content/'
     }
 
     //Load Home
     loadHome(contentUrl);
     //Load Seminars
-    loadTalks(contentUrl,"files.list");
+    loadTalks(contentUrl, "files.list");
     //Load part of page thats relevant
     loadHash();
     //Load Swipes
@@ -24,8 +24,8 @@ function start() {
 
 }
 
-function reloadonHistory(eventState){
-    if(!eventState){
+function reloadonHistory(eventState) {
+    if (!eventState) {
         window.location.reload();
         return;
     }
@@ -33,13 +33,13 @@ function reloadonHistory(eventState){
     loadHash();
 }
 
-function loadHash(){
+function loadHash() {
     const hash = window.location.hash;
-    if(!hash){
+    if (!hash) {
         clickNav("navbar-Home");
-    } else if (hash=="#Talks"){
+    } else if (hash == "#Talks") {
         clickNav("navbar-Talks");
-    } else if (hash=="#Visits"){
+    } else if (hash == "#Visits") {
         clickNav("navbar-Visits");
     }
 }
@@ -58,51 +58,50 @@ function loadFile(filePath) {
 }
 
 function loadFileAsync(filePath) {
-    var result = null;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", filePath, true);
     xmlhttp.send();
     return xmlhttp;
-
 }
 
-function clickHome(){
+
+function clickHome() {
 
     const homeUrl = window.location.origin + window.location.pathname;
     const homeTitle = "Polynomials as an Algorithmic Paradigm";
 
     let contentUrl;
     const indexOfIndex = window.location.pathname.indexOf("index.html");
-    if(indexOfIndex==-1){
+    if (indexOfIndex == -1) {
         contentUrl = window.location.origin + window.location.pathname + 'content/'
     } else {
-        contentUrl = window.location.origin + window.location.pathname.substr(0,indexOfIndex) + 'content/'
+        contentUrl = window.location.origin + window.location.pathname.substr(0, indexOfIndex) + 'content/'
     }
 
-    const homeState = {"title":homeTitle,"url":homeUrl,"contentUrl":contentUrl};
+    const homeState = {"title": homeTitle, "url": homeUrl, "contentUrl": contentUrl};
     history.pushState(homeState, homeTitle, homeUrl);
 
     loadHome(contentUrl);
 }
 
-function clickTalk(talkTitle, talkUrl){
+function clickTalk(talkTitle, talkUrl) {
 
     let contentUrl;
     const indexOfIndex = window.location.pathname.indexOf("index.html");
-    if(indexOfIndex==-1){
+    if (indexOfIndex == -1) {
         contentUrl = window.location.origin + window.location.pathname + 'content/'
     } else {
-        contentUrl = window.location.origin + window.location.pathname.substr(0,indexOfIndex) + 'content/'
+        contentUrl = window.location.origin + window.location.pathname.substr(0, indexOfIndex) + 'content/'
     }
 
-    const talkState = {"title":talkTitle,"url":talkUrl,"contentUrl":contentUrl};
+    const talkState = {"title": talkTitle, "url": talkUrl, "contentUrl": contentUrl};
     history.pushState(talkState, talkTitle, talkUrl);
     loadHome(contentUrl);
 }
 
-function generateTalkHTML(talkHTTP,talkName){
+function generateTalkHTML(talkHTTP, talkName) {
     const seminarContents = talkHTTP.responseText;
-    [seminar, seminarDate,seminarName] = createTalk(seminarContents, talkName + ".md",1);
+    [seminar, seminarDate, seminarName] = createTalk(seminarContents, talkName + ".md", 1);
     const seminarHome = document.createElement("div");
     seminarHome.id = "seminarHome";
     seminarHome.className = "home-text";
@@ -112,10 +111,10 @@ function generateTalkHTML(talkHTTP,talkName){
     //set document title
     document.title = seminarName
     //reset Mathjax typesetting
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub,seminarHome]);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, seminarHome]);
 }
 
-function removeChildren(someDiv){
+function removeChildren(someDiv) {
     while (someDiv.hasChildNodes()) {
         someDiv.removeChild(someDiv.firstChild);
     }
@@ -127,28 +126,31 @@ function loadHome(contentUrl) {
     clickNav("navbar-Home");
     query = getSearchString();
     const talkIndex = query.indexOf("talk=")
-    if(talkIndex==-1){
+    if (talkIndex == -1) {
         generateHomeHTML(contentUrl);
     } else {
-        let talkName = query.substr(talkIndex+5);
-        const talkHttp = loadFileAsync(contentUrl+"seminars/" + talkName + ".md");
+        let talkName = query.substr(talkIndex + 5);
+        const talkHttp = loadFileAsync(contentUrl + "seminars/" + talkName + ".md");
         talkHttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                generateTalkHTML(this,talkName);
+                generateTalkHTML(this, talkName);
             }
         }
     }
 }
-function getSearchString(){return window.location.search;}
 
-function loadIntroText(introResponse, parentDiv){
+function getSearchString() {
+    return window.location.search;
+}
+
+function loadIntroText(introResponse, parentDiv) {
     //Introduction
     const introPart = document.createElement("div");
     introPart.className = "home-text"
     para = introResponse.responseText;
     paraS = para.split("~~~");
 
-    for(let i =0;i<paraS.length;i++){
+    for (let i = 0; i < paraS.length; i++) {
         let para = document.createElement("div");
         para.className = "home-textpara";
         para.innerHTML = paraS[i];
@@ -156,7 +158,8 @@ function loadIntroText(introResponse, parentDiv){
     }
     parentDiv.appendChild(introPart);
 }
-function loadCollaborators(collabResponse,parentDiv){
+
+function loadCollaborators(collabResponse, parentDiv) {
     //Collaborators Heading
     const collabHeading = document.createElement("div");
     collabHeading.className = "home-header";
@@ -166,16 +169,16 @@ function loadCollaborators(collabResponse,parentDiv){
 
     //Create Page
     const institutes = document.createElement("div");
-    institutes.className= "home-text";
+    institutes.className = "home-text";
     institutes.id = "institutions"
     instisData = collabResponse.responseText;
     instisDataS = instisData.split("+++");
-    for (let i = 0;i<instisDataS.length;i++){
+    for (let i = 0; i < instisDataS.length; i++) {
         let institute = document.createElement("div");
         institute.className = "institute";
 
-        let instiData =  instisDataS[i].trim();
-        let instiDataS =  instiData.split("\n");
+        let instiData = instisDataS[i].trim();
+        let instiDataS = instiData.split("\n");
 
         let instituteName = document.createElement("div");
         instituteName.className = "institute-name";
@@ -188,7 +191,7 @@ function loadCollaborators(collabResponse,parentDiv){
         instituteName.appendChild(instituteLink);
         institute.appendChild(instituteName);
         uldiv = document.createElement("ul");
-        for(let j =1;j<instiDataS.length;j++){
+        for (let j = 1; j < instiDataS.length; j++) {
             let lidiv = document.createElement("li");
             let personName = document.createElement("a");
             personName.className = "name";
@@ -199,7 +202,7 @@ function loadCollaborators(collabResponse,parentDiv){
             lidiv.appendChild(personName);
             uldiv.appendChild(lidiv);
         }
-        if(instiDataS.length>1){
+        if (instiDataS.length > 1) {
             institute.appendChild(uldiv);
         }
         institutes.appendChild(institute);
@@ -208,7 +211,7 @@ function loadCollaborators(collabResponse,parentDiv){
 
 }
 
-function generateHomeHTML(dirName){
+function generateHomeHTML(dirName) {
     //HomePage
     const introhttp = loadFileAsync(dirName+"home/intro.txt");
     const collaboratorshttp = loadFileAsync(dirName+"home/collaborators.txt");
@@ -223,12 +226,12 @@ function generateHomeHTML(dirName){
 
     introhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            loadIntroText(this,introHolder);
+            loadIntroText(this, introHolder);
         }
     }
     collaboratorshttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            loadCollaborators(this,collabHolder);
+            loadCollaborators(this, collabHolder);
         }
     }
     //set document title
