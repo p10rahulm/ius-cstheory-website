@@ -18,7 +18,13 @@ function clickNav(clicked_id) {
     document.getElementById("navbar-Visits").classList.remove("navbar-active");
     document.getElementById(clicked_id).classList.add("navbar-active");
 
-
+    if(clicked_id=="navbar-Talks"){
+        document.getElementById("subscribe-holder").classList.add("subscribe-active");
+        document.getElementById("subscribe-holder").classList.remove("subscribe-inactive");
+    } else{
+        document.getElementById("subscribe-holder").classList.remove("subscribe-active");
+        document.getElementById("subscribe-holder").classList.add("subscribe-inactive");
+    }
 
 }
 
