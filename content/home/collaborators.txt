@@ -3,7 +3,7 @@ Mohit Singh||https://www2.isye.gatech.edu/~msingh94/
 Prasad Tetali||https://people.math.gatech.edu/~tetali/
 Santosh Vempala||https://www.cc.gatech.edu/~vempala/
 +++
-University of California, Berkley||https://eecs.berkeley.edu/
+University of California, Berkeley||https://eecs.berkeley.edu/
 Prasad Raghavendra||https://people.eecs.berkeley.edu/~prasad/
 Alistair Sinclair||https://people.eecs.berkeley.edu/~sinclair/
 Nikhil Srivastava||https://math.berkeley.edu/~nikhil/

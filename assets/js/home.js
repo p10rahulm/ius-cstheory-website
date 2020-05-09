@@ -1,7 +1,9 @@
 // first time load
 document.addEventListener("DOMContentLoaded", start);
 //on accessing page via history
-window.onpopstate = function (event) {    reloadonHistory(event.state)};
+window.onpopstate = function (event) {
+    reloadonHistory(event.state)
+};
 
 
 function start() {
@@ -213,8 +215,8 @@ function loadCollaborators(collabResponse, parentDiv) {
 
 function generateHomeHTML(dirName) {
     //HomePage
-    const introhttp = loadFileAsync(dirName+"home/intro.txt");
-    const collaboratorshttp = loadFileAsync(dirName+"home/collaborators.txt");
+    const introhttp = loadFileAsync(dirName + "home/intro.txt");
+    const collaboratorshttp = loadFileAsync(dirName + "home/collaborators.txt");
 
     homeDiv = document.getElementById("Home");
     introHolder = document.createElement("div");
