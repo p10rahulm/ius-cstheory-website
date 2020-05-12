@@ -1,8 +1,8 @@
 +++
 title = "Online vector balancing"
 author = "<a href="https://www.win.tue.nl/~nikhil/" target="_blank">Nikhil Bansal, CWI and TU Eindhoven</a>"
-date = "2020-05-25T21:00:00+05:30"
-date_end = "2020-05-25T22:00:00+05:30"
+date = "2020-07-13T21:00:00+05:30"
+date_end = "2020-07-13T22:00:00+05:30"
 location = "<a href="#">Location: Virtual Seminar</a>"
 notes = ""
 +++
