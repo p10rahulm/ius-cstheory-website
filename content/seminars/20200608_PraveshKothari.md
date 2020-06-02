@@ -1,10 +1,10 @@
 +++
 title = "Outlier-robust Clustering of Gaussian Mixtures"
-author = "<a href="https://www.cs.princeton.edu/~kothari/" target="_blank">Pravesh Kothari</a>"
+author = "<a href="http://www.cs.cmu.edu/~praveshk/" target="_blank">Pravesh Kothari</a>"
 date = "2020-06-08T21:00:00+05:30"
 date_end = "2020-06-08T22:30:00+05:30"
 location = "<a href="#">Location: Virtual Seminar</a>"
-notes = ""
+notes = "Joint <a href = "http://www.arc.gatech.edu/" target = "_blank">ARC seminar</a> and <a href='https://polyalg.csa.iisc.ac.in/'>Indo-US virtual center seminar</a>"
 link_to_paper = ""
 +++
 
