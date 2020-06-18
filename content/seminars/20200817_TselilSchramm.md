@@ -7,4 +7,3 @@ location = "<a href="#">Location: Virtual Seminar</a>"
 notes = ""
 +++
 
-Talk details TBA
