@@ -16,7 +16,6 @@ function loadTalks(contentUrl, filesListPath) {
                 document.getElementById("upcoming-seminars").appendChild(talkHolderUpcoming);
                 talkHolderPast = document.createElement("div");
                 talkHolderPast.id = talkFileName + "-past"
-                // document.getElementById("past-seminars").appendChild(talkHolderPast);
                 document.getElementById("past-seminars").prepend(talkHolderPast);
 
                 talkhttp.onreadystatechange = function (talkFileName) {
