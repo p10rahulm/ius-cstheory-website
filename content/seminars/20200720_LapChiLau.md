@@ -4,8 +4,9 @@ author = "<a href="https://cs.uwaterloo.ca/~lapchi/" target="_blank">Lap Chi Lau
 date = "2020-07-20T21:00:00+05:30"
 date_end = "2020-07-20T22:00:00+05:30"
 location = "<a href="#">Location: Virtual Seminar</a>"
-notes = ""
+notes = "Joint <a href = "http://www.arc.gatech.edu/" target = "_blank">ARC seminar</a> and <a href='https://polyalg.csa.iisc.ac.in/'>Indo-US virtual center seminar</a>"
 +++
+
 <b>Abstract:</b>
 We present a spectral approach to design approximation algorithms for network design problems.  We observe
 that the underlying mathematical questions are the spectral rounding problems, which were studied in spectral

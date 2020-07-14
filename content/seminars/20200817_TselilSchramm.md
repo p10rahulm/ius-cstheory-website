@@ -4,6 +4,6 @@ author = "<a href="https://tselilschramm.org/" target="_blank">Tselil Schramm, M
 date = "2020-08-17T21:00:00+05:30"
 date_end = "2020-08-17T22:00:00+05:30"
 location = "<a href="#">Location: Virtual Seminar</a>"
-notes = ""
+notes = "Joint <a href = "http://www.arc.gatech.edu/" target = "_blank">ARC seminar</a> and <a href='https://polyalg.csa.iisc.ac.in/'>Indo-US virtual center seminar</a>"
 +++
 
