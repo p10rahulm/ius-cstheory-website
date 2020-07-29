@@ -3,7 +3,7 @@ title = "A (slightly) Improved Approximation algorithm for Metric TSP"
 author = "<a href="https://homes.cs.washington.edu/~shayan/" target="_blank">Shayan Gharan, University of Washington</a>"
 date = "2020-07-27T21:00:00+05:30"
 date_end = "2020-07-27T22:00:00+05:30"
-location = "<a href="#">Location: Virtual Seminar</a>"
+location = "<a href="https://bluejeans.com/s/Thd_xiCqwr3/" target="_blank">Recording: Virtual Seminar</a>"
 notes = "Joint <a href = "http://www.arc.gatech.edu/" target = "_blank">ARC seminar</a> and <a href='https://polyalg.csa.iisc.ac.in/'>Indo-US virtual center seminar</a>"
 link_to_paper = ""
 +++

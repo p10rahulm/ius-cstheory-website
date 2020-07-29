@@ -3,7 +3,7 @@ title = "A Spectral Approach to Network Design"
 author = "<a href="https://cs.uwaterloo.ca/~lapchi/" target="_blank">Lap Chi Lau, University of Waterloo</a>"
 date = "2020-07-20T21:00:00+05:30"
 date_end = "2020-07-20T22:00:00+05:30"
-location = "<a href="#">Location: Virtual Seminar</a>"
+location = "<a href="https://bluejeans.com/s/FnVp0J4jM@B/" target="_blank">Recording: Virtual Seminar</a>"
 notes = "Joint <a href = "http://www.arc.gatech.edu/" target = "_blank">ARC seminar</a> and <a href='https://polyalg.csa.iisc.ac.in/'>Indo-US virtual center seminar</a>"
 +++
 
