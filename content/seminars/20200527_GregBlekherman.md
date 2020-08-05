@@ -3,7 +3,7 @@ title = "Graph profiles, sums of squares and tropicalization"
 author = "<a href="https://sites.google.com/site/grrigg/" target="_blank">Greg Blekherman, Georgia Tech</a>"
 date = "2020-05-27T21:00:00+05:30"
 date_end = "2020-05-27T23:00:00+05:30"
-location = "<a href="https://bluejeans.com/s/Jjshg/" target="_blank" >Recording: Virtual Seminar</a>"
+location = "<a href="https://bluejeans.com/s/Jjshg/" target="_blank" >Talk Recording Link</a>"
 notes = ""
 link_to_paper = ""
 
