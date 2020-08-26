@@ -4,10 +4,12 @@ function clickNav(clicked_id) {
     document.getElementById("Home").classList.add("inactive")
     document.getElementById("Talks").classList.add("inactive");
     document.getElementById("Visits").classList.add("inactive");
+    document.getElementById("JoinUs").classList.add("inactive");
 
     document.getElementById("Home").classList.remove("active");
     document.getElementById("Talks").classList.remove("active");
     document.getElementById("Visits").classList.remove("active");
+    document.getElementById("JoinUs").classList.remove("active");
 
     document.getElementById(divIdString).classList.remove("inactive");
     document.getElementById(divIdString).classList.add("active");
@@ -16,6 +18,7 @@ function clickNav(clicked_id) {
     document.getElementById("navbar-Home").classList.remove("navbar-active");
     document.getElementById("navbar-Talks").classList.remove("navbar-active");
     document.getElementById("navbar-Visits").classList.remove("navbar-active");
+    document.getElementById("navbar-JoinUs").classList.remove("navbar-active");
     document.getElementById(clicked_id).classList.add("navbar-active");
 
     if(clicked_id=="navbar-Talks"){
@@ -106,7 +109,7 @@ function seeLessAbstract(element) {
 function oneRingToSwipemAll(){
     //right-swipe on Home
     document.getElementById('Home').addEventListener('swiped-right', function (e) {
-        clickNav("navbar-Visits");
+        clickNav("navbar-JoinUs");
     });
     //left-swipe on Home
     document.getElementById('Home').addEventListener('swiped-left', function (e) {
@@ -129,6 +132,15 @@ function oneRingToSwipemAll(){
     });
     //left-swipe on Visits
     document.getElementById('Visits').addEventListener('swiped-left', function (e) {
+        clickNav("navbar-JoinUs");
+    });
+
+    //right-swipe on JoinUs
+    document.getElementById('JoinUs').addEventListener('swiped-right', function (e) {
+        clickNav("navbar-Visits");
+    });
+    //left-swipe on JoinUs
+    document.getElementById('JoinUs').addEventListener('swiped-left', function (e) {
         clickNav("navbar-Home");
     });
 }

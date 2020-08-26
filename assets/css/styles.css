@@ -174,8 +174,18 @@ a:hover {
     font-weight: bold;
     padding-top: 25px;
     padding-bottom: 10px;
+}
+
+.mainer .home-header2{
+    font-family: "Lora", Georgia,Cambria,Times,"Times New Roman",Serif;
+    color: rgba(0, 67, 204, 0.85);
+    font-size: max(16px,1.25em);
+    font-weight: bold;
+    padding-top: 25px;
+    padding-bottom: 10px;
 
 }
+
 .mainer .home-textpara{
     color: rgb(90, 91, 106);
     font-size: max(12px,1em);

@@ -38,7 +38,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119166503-5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-119166503-5');
@@ -56,19 +60,22 @@
 
         <div id="navbar" class="header-elem">
             <div id="navbar-Home" class="navbar-active navbar_button" onclick="clickNav(this.id);setHash(this.id)">
-                    Home
+                Home
             </div>
             <div id="navbar-Talks" class="navbar_button" onclick="clickNav(this.id);setAbstracts();setHash(this.id)">
-                    Talks
+                Talks
             </div>
             <div id="navbar-Visits" class="navbar_button" onclick="clickNav(this.id);setHash(this.id)">
-                    Visits
+                Visits
+            </div>
+            <div id="navbar-JoinUs" class="navbar_button" onclick="clickNav(this.id);setHash(this.id)">
+                Join Us
             </div>
 
         </div>
     </div>
     <div id="subscribe-holder">
-        <a href ="https://lists.gatech.edu/sympa/info/polyalg" target="_blank">SUBSCRIBE</a>
+        <a href="https://lists.gatech.edu/sympa/info/polyalg" target="_blank">SUBSCRIBE</a>
     </div>
     <div class="mainer container-element">
         <div id="Home" class="main active">
@@ -95,44 +102,77 @@
             </div>
 
         </div>
+        <div id="JoinUs" class="main inactive">
+            <div class="home-header">Join Us</div>
+            <div class="home-text">
+                <div class="home-textpara">
+                    To participate in this center's activities through IISc, please join us via one of the following.
+                </div>
+            </div>
+
+            <div class="home-header2">Postdoctoral researcher positions at IISc</div>
+            <div class="home-text">
+                <div class="home-textpara">
+                    For more information about IISc's Raman Post-Doc positions, including application procedure, please
+                    see the linked <a target="_blank" href="https://www.iisc.ac.in/post-docs/">post doctorate application page</a>
+                </div>
+            </div>
+
+            <div class="home-header2">Become a student at IISc</div>
+            <div class="home-text">
+                <div class="home-textpara">
+                    For joining the CSA department, you can find more information
+                    <a target="_blank" href="https://www.csa.iisc.ac.in/people-all/join-us/prospective-students/">at this link</a>
+                </div>
+            </div>
+            <div class="home-header2">Long term internships at IISc</div>
+            <div class="home-text">
+                <div class="home-textpara">
+                    There are up to two 6 to 12 months internships available in the area of
+                    “Polynomials as an Algorithmic Paradigm”. Applicants should have completed their undergraduate
+                    studies before the start date of the internship. More information coming soon.
+                </div>
+            </div>
 
 
-    </div>
-    <div class="footer container-element" onclick="loadHome('content/')">
-        <div id="copyright">
-            &copy; 2020 <a href="https://www.iisc.ac.in" target="_blank">Indian Institute of Science, Bangalore</a>.
-            Website maintained by Rahul Madhavan
+        </div>
+        <div class="footer container-element" onclick="loadHome('content/')">
+            <div id="copyright">
+                &copy; 2020 <a href="https://www.iisc.ac.in" target="_blank">Indian Institute of Science, Bangalore</a>.
+                Website maintained by Rahul Madhavan
+            </div>
+
         </div>
 
     </div>
 
-</div>
 
-
-<script type="text/x-mathjax-config" defer>
+    <script type="text/x-mathjax-config" defer>
 MathJax.Hub.Config({
   tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 });
 
-</script>
-<script type="text/javascript" defer
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/javascript" async src="assets/js/swiped-events.min.js"></script>
-<script type="text/javascript" defer>
-    WebFontConfig = {
-        google: {
-            families: ['Lora', 'Open Sans', 'Alegreya SC']
-        }
-    };
 
-    (function(d) {
-        var wf = d.createElement('script'), s = d.scripts[0];
-        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
-        wf.async = true;
-        s.parentNode.insertBefore(wf, s);
-    })(document);
-</script>
+
+    </script>
+    <script type="text/javascript" defer
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/javascript" async src="assets/js/swiped-events.min.js"></script>
+    <script type="text/javascript" defer>
+        WebFontConfig = {
+            google: {
+                families: ['Lora', 'Open Sans', 'Alegreya SC']
+            }
+        };
+
+        (function (d) {
+            var wf = d.createElement('script'), s = d.scripts[0];
+            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+            wf.async = true;
+            s.parentNode.insertBefore(wf, s);
+        })(document);
+    </script>
 
 </body>
 </html>
