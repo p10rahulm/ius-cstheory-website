@@ -43,6 +43,8 @@ function loadHash() {
         clickNav("navbar-Talks");
     } else if (hash == "#Visits") {
         clickNav("navbar-Visits");
+    } else if (hash == "#JoinUs") {
+        clickNav("navbar-JoinUs");
     }
 }
 
