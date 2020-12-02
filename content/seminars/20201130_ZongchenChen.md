@@ -3,7 +3,7 @@ title = "Optimal Mixing of Glauber Dynamics: Entropy Factorization via High-Dime
 author = "<a href="https://sites.google.com/view/zongchenchen/home" target="_blank">Zongchen Chen (Georgia Institute of Technology)</a>"
 date = "2020-11-30T21:00:00+05:30"
 date_end = "2020-11-30T22:00:00+05:30"
-location = "<a href="https://bluejeans.com/s/tjfDP5BhAOa">Location: Virtual Seminar</a>"
+location = "<a href="https://bluejeans.com/s/tjfDP5BhAOa">Link to Talk</a>"
 notes = "Joint <a href = "http://www.arc.gatech.edu/" target = "_blank">ARC seminar</a> and <a href='https://polyalg.csa.iisc.ac.in/'>Indo-US virtual center seminar</a>"
 +++
 
