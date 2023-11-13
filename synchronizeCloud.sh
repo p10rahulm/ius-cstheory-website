@@ -17,10 +17,7 @@ git push
 ssh -t polyalg@csacloud.iisc.ac.in -p 3232 "./syncPolyAlg.sh"
 echo "Please check that the website https://polyalg.csa.iisc.ac.in/ is updated."
 # If not, use:
-plink polyalg@csacloud.iisc.ac.in -P 3232 -pw P0ly@lg879
-./syncPolyAlg.sh
-echo "Please check that the website https://polyalg.csa.iisc.ac.in/ is updated"
-exit
-
-
+# plink polyalg@csacloud.iisc.ac.in -P 3232 -pw P0ly@lg879
+# ./syncPolyAlg.sh
+# echo "Please check that the website https://polyalg.csa.iisc.ac.in/ is updated"
 # exit
